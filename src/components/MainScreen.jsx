@@ -1,5 +1,5 @@
 import "./../assets/scss/MainScreen.scss";
-// import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 
 export default function MainScreen({ config, solved }) {
   return <div className="frame">

@@ -14,6 +14,7 @@ export default defineConfig(async ({ mode }) => {
     base: "./",
     server: {
       open: true,
+      hmr: true
     },
     plugins: [
       react(),
