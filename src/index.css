@@ -78,6 +78,10 @@ button:focus-visible {
   background-image: url(../public/images/background_screen.jpeg);
   background-size: cover;
 }
+
+.userName {
+  margin-bottom: 2rem;
+}
 /*CONTAINER LOGIN*/
 .containerLogin {
   display: flex;
@@ -100,24 +104,30 @@ background-size: cover;
 /* From Uiverse.io by alexruix */ 
 .input {
   width: 290px;
-  background-color: #212121;
+  background-color: #5d5d5da3;
   color: #dcdcdc;
   padding: .15rem .5rem;
   min-height: 40px;
   border-radius: 4px;
   outline: none;
-  border: none;
+  border: transparent 1px;
   line-height: 1.15;
   box-shadow: 0px 10px 20px -18px;
+  outline: none;
 }
 
 input:focus {
-  border-bottom: 2px solid #5b5fc7;
+  border-bottom: 2px solid #878adc;
   border-radius: 4px 4px 2px 2px;
 }
 
-input:hover {
+/* input:hover {
   outline: 1px solid lightgrey;
+} */
+
+.forgotPIN {
+  margin-top: 2rem;
+  font-size: 0.9rem;
 }
 
 /*FOOTER*/
@@ -125,4 +135,7 @@ input:hover {
   position: absolute;
   right:12px;
   bottom: 12px;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0.8rem 1.25rem
 }
