@@ -190,6 +190,7 @@ export default function App() {
       id: MAIN_SCREEN,
       content: (
         <div
+          className="main-background"
           style={{
             backgroundImage: appSettings?.backgroundImg ? `url(${appSettings.backgroundImg})` : {},
             height: " 100%",
