@@ -7,3 +7,20 @@ div.frame {
   width: 100%;
   height: 100%;
 }
+.ok-button {
+  margin-top: 40px;
+  width: "125px";
+  background-color: #1a2bff1f;
+  border: 2px solid white;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+}
+
+.ok-button:hover {
+  opacity: 0.85;
+}

@@ -1,7 +1,13 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import "./../assets/scss/app.scss";
 
-import { DEFAULT_APP_SETTINGS, ESCAPP_CLIENT_SETTINGS, MAIN_SCREEN, THEME_ASSETS } from "../constants/constants.jsx";
+import {
+  DEFAULT_APP_SETTINGS,
+  END_SCREEN,
+  ESCAPP_CLIENT_SETTINGS,
+  MAIN_SCREEN,
+  THEME_ASSETS,
+} from "../constants/constants.jsx";
 import { GlobalContext } from "./GlobalContext.jsx";
 import MainScreen from "./MainScreen.jsx";
 
@@ -13,9 +19,8 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [screen, setScreen] = useState(MAIN_SCREEN);
   const prevScreen = useRef(screen);
-  const [fail, setFail] = useState(false);
   const [solved, setSolved] = useState(false);
-  const [config, setConfig] = useState({});
+  const [solvedTrigger, setSolvedTrigger] = useState(0);
 
   useEffect(() => {
     //Init Escapp client
@@ -147,6 +152,7 @@ export default function App() {
       Utils.log("Check solution Escapp response", success, erState);
       if (success) {
         setSolved(true);
+        setScreen(END_SCREEN);
         try {
           setTimeout(() => {
             submitPuzzleSolution(_solution);
@@ -155,6 +161,7 @@ export default function App() {
           Utils.log("Error in checkNextPuzzle", e);
         }
       }
+      setSolvedTrigger((prev) => prev + 1);
     });
   }
   function submitPuzzleSolution(_solution) {
@@ -183,11 +190,30 @@ export default function App() {
       id: MAIN_SCREEN,
       content: (
         <div
-          className={`main-background${solved ? " solved" : ""}`}
-          style={{ backgroundImage: appSettings?.backgroundImg ? `url(${appSettings.backgroundImg})` : {} }}
+          style={{
+            backgroundImage: appSettings?.backgroundImg ? `url(${appSettings.backgroundImg})` : {},
+            height: " 100%",
+            width: "100%",
+          }}
         >
-          <MainScreen config={appSettings} solvePuzzle={solvePuzzle} solved={solved} />
+          <MainScreen solvePuzzle={solvePuzzle} solved={solved} solvedTrigger={solvedTrigger} />
         </div>
+      ),
+    },
+    {
+      id: END_SCREEN,
+      content: (
+        <video
+          src={appSettings?.endScreenVideo}
+          autoPlay
+          loop
+          muted
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
       ),
     },
   ];

@@ -75,8 +75,8 @@ button:focus-visible {
 
 /*FRAME*/
 .frame {
-  background-image: url(../public/images/background_screen.jpeg);
   background-size: cover;
+  background-position: center;
 }
 
 .userName {
@@ -96,17 +96,16 @@ button:focus-visible {
   background-color: #a1a1a1;
   height: 160px;
   aspect-ratio: 1/1;
-  background-image: url(../public/images/Profile_avatar_placeholder_large.png);
-background-size: cover;
+  background-size: cover;
 }
 
 /*INPUT*/
-/* From Uiverse.io by alexruix */ 
+/* From Uiverse.io by alexruix */
 .input {
   width: 290px;
   background-color: #414141a3;
   color: #e7e7e7;
-  padding: .15rem .5rem;
+  padding: 0.15rem 0.5rem;
   min-height: 40px;
   border-radius: 4px;
   outline: none;
@@ -115,9 +114,7 @@ background-size: cover;
 
   outline: none;
 }
-.input[type="password"]
-
-input:focus {
+.input[type="password"] input:focus {
   border-bottom: 2px solid #878adc;
   border-radius: 4px 4px 2px 2px;
 }
@@ -134,9 +131,9 @@ input:focus {
 /*FOOTER*/
 .footer {
   position: absolute;
-  right:12px;
+  right: 12px;
   bottom: 12px;
   display: flex;
   gap: 1.5rem;
-  margin: 0.8rem 1.25rem
+  margin: 0.8rem 1.25rem;
 }
