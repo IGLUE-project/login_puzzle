@@ -1,7 +1,8 @@
 import "./../assets/scss/MainScreen.scss";
-import PowerSettingsNewIcon from "@mui/icons-material/PowerSettingsNew";
-import AccessibilityNewIcon from "@mui/icons-material/AccessibilityNew";
-import WifiIcon from "@mui/icons-material/Wifi";
+import { Power } from 'lucide-react';
+import { Wifi } from 'lucide-react';
+import { PersonStanding } from 'lucide-react';
+
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { GlobalContext } from "./GlobalContext.jsx";
@@ -44,6 +45,7 @@ export default function MainScreen({ solvePuzzle, solved, solvedTrigger }) {
               id="password"
               type="password"
               value={solution}
+              placeholder="PIN"
             ></input>
             {config.hint && (
               <>
@@ -67,9 +69,9 @@ export default function MainScreen({ solvePuzzle, solved, solvedTrigger }) {
       </div>
 
       <div className="footer">
-        <WifiIcon sx={{ fontSize: 20 }} />
-        <AccessibilityNewIcon sx={{ fontSize: 20 }} />
-        <PowerSettingsNewIcon sx={{ fontSize: 20 }} />
+        <Wifi sx={{ fontSize: 20 }} />
+        <PersonStanding sx={{ fontSize: 20 }} /> 
+        <Power sx={{ fontSize: 20 }} />
       </div>
     </div>
   );

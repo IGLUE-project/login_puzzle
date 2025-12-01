@@ -1,8 +1,8 @@
 export const DEFAULT_APP_SETTINGS = {
   skin: "STANDARD",
-  avatarImg: "/images/Profile_avatar_placeholder_large.png",
+  avatarImg: "/images/avatar.png",
   userName: "User Name",
-  backgroundImg: "/images/background_screen.jpeg",
+  backgroundImg: "/images/bg-screen.png",
   endScreenVideo: "/videos/loading.mp4",
 };
 
@@ -16,7 +16,7 @@ export const THEMES = {
 export const THEME_ASSETS = {
   [THEMES.RETRO]: {},
   [THEMES.STANDARD]: {
-    backgroundImg: "/images/background_screen.jpeg",
+    backgroundImg: "/images/bg-screen.png",
     endScreenVideo: "/videos/loading.mp4",
   },
   [THEMES.FUTURISTIC]: {},
