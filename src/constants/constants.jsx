@@ -6,6 +6,8 @@ export const DEFAULT_APP_SETTINGS = {
   endScreenVideo: "/videos/loading.mp4",
   usernameRequired: "FALSE",
   passwordPlaceholder: "Password",
+  webUrl: "https://example.com",
+  actionAfterSolve: "VIDEO",
 };
 
 export const THEMES = {
@@ -24,8 +26,14 @@ export const THEME_ASSETS = {
   [THEMES.FUTURISTIC]: {},
 };
 
+export const ACTION_AFTER_SOLVE = {
+  WEB: "WEB",
+  VIDEO: "VIDEO",
+}
+
 export const ESCAPP_CLIENT_SETTINGS = {
   imagesPath: "./images/",
 };
 export const MAIN_SCREEN = "MAIN_SCREEN";
 export const END_SCREEN = "END_SCREEN";
+export const WEB_SCREEN = "WEB_SCREEN";

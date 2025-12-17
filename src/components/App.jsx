@@ -2,11 +2,13 @@ import { useContext, useEffect, useRef, useState } from "react";
 import "./../assets/scss/app.scss";
 
 import {
+  ACTION_AFTER_SOLVE,
   DEFAULT_APP_SETTINGS,
   END_SCREEN,
   ESCAPP_CLIENT_SETTINGS,
   MAIN_SCREEN,
   THEME_ASSETS,
+  WEB_SCREEN,
 } from "../constants/constants.jsx";
 import { GlobalContext } from "./GlobalContext.jsx";
 import MainScreen from "./MainScreen.jsx";
@@ -89,23 +91,7 @@ export default function App() {
 
   function restoreAppState(erState) {
     Utils.log("Restore application state based on escape room state:", erState);
-    const _settings = escapp.getSettings();
 
-    if (!_settings.linkedPuzzleIds || _settings.linkedPuzzleIds.length === 0) {
-      setAppSettings((prevSettings) => {
-        return {
-          ...prevSettings,
-          disableButton: true,
-        };
-      });
-    }
-
-    // Si el puzle está resuelto lo ponemos en posicion de resuelto
-    if (escapp.getAllPuzzlesSolved() && escapp.getLastSolution()) {
-      if (appSettings.actionWhenLoadingIfSolved) {
-        setSolved(true);
-      }
-    }
   }
 
   function processAppSettings(_appSettings) {
@@ -154,7 +140,11 @@ export default function App() {
       Utils.log("Check solution Escapp response", success, erState);
       if (success) {
         setSolved(true);
-        setScreen(END_SCREEN);
+        if (appSettings.actionAfterSolve === ACTION_AFTER_SOLVE.WEB) {
+          setScreen(WEB_SCREEN);
+        } else if (appSettings.actionAfterSolve === ACTION_AFTER_SOLVE.VIDEO) {
+          setScreen(END_SCREEN);
+        }
         try {
           setTimeout(() => {
             submitPuzzleSolution(_solution);
@@ -219,14 +209,26 @@ export default function App() {
         />
       ),
     },
+    {
+      id: WEB_SCREEN,
+      content: (
+        <iframe
+          src={appSettings?.webUrl}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+      ),
+    },
   ];
 
   return (
     <div
       id="global_wrapper"
-      className={`${
-        appSettings !== null && typeof appSettings.skin === "string" ? appSettings.skin.toLowerCase() : ""
-      }`}
+      className={`${appSettings !== null && typeof appSettings.skin === "string" ? appSettings.skin.toLowerCase() : ""
+        }`}
     >
       {renderScreens(screens)}
     </div>
