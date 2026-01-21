@@ -83,6 +83,7 @@ export default function MainScreen({ solvePuzzle, submitPuzzleSolution, solved, 
                   type="text"
                   value={userName}
                   placeholder={I18n.getTrans("i.username_placeholder")}
+                  autocomplete="new-username"
                 ></input>
               </h2>
             ) : (
@@ -98,6 +99,7 @@ export default function MainScreen({ solvePuzzle, submitPuzzleSolution, solved, 
                 type="password"
                 value={password}
                 placeholder={appSettings.passwordPlaceholder}
+                autocomplete="new-password"
               />
               <button className="send-btn" onClick={() => sendSolution()}>
                 ➜

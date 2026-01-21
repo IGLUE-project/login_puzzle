@@ -1,8 +1,8 @@
 export const DEFAULT_APP_SETTINGS = {
   skin: "STANDARD",
   usernameRequired: "FALSE",
-  avatarImg: "/images/avatar.png",
-  backgroundImg: "/images/bg-screen.png",
+  avatarImg: "images/avatar.png",
+  backgroundImg: "images/bg-screen.png",
   actionAfterSolve: "NONE",
   icons: ["power"], //Full list: ["power", "wifi", "accessibility"]
   soundLoginNok: "sounds/failure_login.mp3",
